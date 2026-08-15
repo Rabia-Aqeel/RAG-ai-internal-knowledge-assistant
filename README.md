@@ -1,17 +1,16 @@
 
-RAG AI Internal Knowledge Assistant
+## RAG AI Internal Knowledge Assistant
 
 An AI-powered RAG workflow that allows users to ask questions and receive answers based on internal company documents, built with n8n, Google Gemini, and Groq.
 
-Overview
+## Overview
 
 RAG AI Internal Knowledge Assistant automates document ingestion, semantic retrieval, and AI-powered question answering using a Retrieval-Augmented Generation (RAG) architecture.
 
 Documents are uploaded to Google Drive, processed into embeddings, and stored in a vector store. When a user asks a question, the AI Agent retrieves relevant information from the knowledge base and generates a grounded answer.
 
-Workflow
 
-Workflow Overview
+## Workflow Overview
 
 Document Ingestion Flow
 
@@ -41,15 +40,15 @@ Groq Chat Model
       ↓
 AI Answer
 
-Workflow Screenshot
+## Workflow Screenshot
 
 The complete n8n workflow is shown below:
 
-Paste your annotated workflow screenshot here
 
-workflow-screenshot.png
 
-How It Works
+
+
+## How It Works
 
 1. Document Ingestion
 
@@ -85,7 +84,7 @@ Google Sheets
 
 Test results are stored with Test ID, Question, AI Answer, and Result.
 
-Key Features
+## Key Features
 
 * Automated document ingestion from Google Drive
 * PDF text extraction
@@ -97,7 +96,7 @@ Key Features
 * Automated AI response testing
 * Google Sheets test result storage
 
-Tech Stack
+## Tech Stack
 
 * n8n — Workflow automation
 * Google Drive — Document storage
@@ -107,7 +106,7 @@ Tech Stack
 * Google Sheets — Testing and results
 * JavaScript — Response processing
 
-Use Cases
+## Use Cases
 
 * Internal company knowledge assistants
 * HR policy assistants
@@ -115,16 +114,4 @@ Use Cases
 * Employee support systems
 * Internal documentation Q&A
 
-Project Structure
 
-RAG-ai-internal-knowledge-assistant/
-│
-├── RAG-ai-internal-knowledge-assistant-GitHub.json
-├── README.md
-└── workflow-screenshot.png
-
-Author
-
-Rabia Aqeel
-
-BS Computer Science Student | AI Automation & AI Agent Development
