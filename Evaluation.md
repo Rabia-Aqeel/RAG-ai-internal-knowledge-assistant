@@ -193,7 +193,8 @@ Evaluation Dataset
 
 The complete RAG evaluation dataset is available in the Excel file below.
 
-📊 [**View RAG Evaluation Test Dataset**](./rag-evaluation-test-dataset.xlsx)
+
+[📊 RAG Evaluation Test Dataset](./rag-evaluation-test-dataset.xlsx)
 The dataset contains 20 test questions, expected answers, expected results, RAG-generated answers, and actual evaluation results.
 
 
