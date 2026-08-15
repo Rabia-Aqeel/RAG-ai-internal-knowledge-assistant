@@ -77,6 +77,7 @@ The RAG system uses **7 internal company documents**:
 
 These documents cover employee policies, leave rules, benefits, security requirements, workplace conduct, remote work, and HR-related information.
 
+> **Note:** The documents used in this project are fictional/sample company documents created specifically for demonstrating and evaluating the RAG workflow. They do not represent real confidential company information.
 
 ## ✨ Key Features
 
