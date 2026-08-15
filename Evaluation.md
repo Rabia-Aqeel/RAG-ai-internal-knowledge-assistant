@@ -189,7 +189,7 @@ These metrics should be calculated from the actual RAG test results rather than 
 
 The complete evaluation dataset is available in the Excel spreadsheet below:
 
-
+![RAG Evaluation Test Dataset](./rag-evaluation-test-dataset.xlsx)
 
 ## View RAG Evaluation Test Dataset
 
