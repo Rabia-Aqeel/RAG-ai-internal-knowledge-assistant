@@ -40,7 +40,7 @@ The questions were intentionally mixed instead of grouping all Pass or Fail case
 | Pass Cases | 15 |
 | Fail Cases | 5 |
 | Documents Evaluated | 7 |
-Evaluation Criteria
+
 
 The RAG workflow was evaluated using the following criteria:
 
