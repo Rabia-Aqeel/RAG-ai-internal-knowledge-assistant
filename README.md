@@ -1,117 +1,272 @@
+# RAG AI Internal Knowledge Assistant
 
-## RAG AI Internal Knowledge Assistant
+![RAG AI Internal Knowledge Assistant Banner](./Banner.jpeg)
 
-An AI-powered RAG workflow that allows users to ask questions and receive answers based on internal company documents, built with n8n, Google Gemini, and Groq.
+**An AI-powered internal knowledge assistant built with Retrieval-Augmented Generation (RAG) and n8n to provide grounded answers from company documents.**
 
-## Overview
+## 📌 Overview
 
-RAG AI Internal Knowledge Assistant automates document ingestion, semantic retrieval, and AI-powered question answering using a Retrieval-Augmented Generation (RAG) architecture.
+The **RAG AI Internal Knowledge Assistant** transforms internal company documents into an interactive AI-powered knowledge base.
 
-Documents are uploaded to Google Drive, processed into embeddings, and stored in a vector store. When a user asks a question, the AI Agent retrieves relevant information from the knowledge base and generates a grounded answer.
+Users can ask questions in natural language, and the system retrieves relevant information from the indexed documents before generating an answer using the retrieved context.
 
-
-## Workflow Overview
-
-Document Ingestion Flow
-
-Google Drive Trigger
-        ↓
-Download File
-        ↓
-Extract PDF Text
-        ↓
-Document Loader
-        ↓
-Gemini Embeddings
-        ↓
-Simple Vector Store
-
-Question Answering Flow
-
-Chat Trigger
-      ↓
-AI Agent
-      ↓
-Vector Store Retriever
-      ↓
-Relevant Knowledge
-      ↓
-Groq Chat Model
-      ↓
-AI Answer
-
-## Workflow Screenshot
-
-The complete n8n workflow is shown below:
+Instead of relying only on the AI model's general knowledge, the assistant is designed to **ground its responses in the organization's internal documentation**, helping reduce unsupported or hallucinated answers.
 
 
+## 🎯 Problem Statement
+
+Organizations often store important information across multiple documents, including:
+
+- HR policies
+- Employee handbooks
+- Leave policies
+- Benefits information
+- Security guidelines
+- Work-from-home policies
+- Frequently asked questions
+
+Finding specific information manually can be time-consuming.
+
+This project provides a centralized AI assistant that allows users to ask questions and retrieve relevant information from the organization's internal knowledge base.
+
+
+## 💡 Solution
+
+The system uses a **Retrieval-Augmented Generation (RAG)** architecture.
+
+When a user submits a question, the workflow:
+
+1. Receives the user's query.
+2. Searches the vector knowledge base.
+3. Retrieves the most relevant document chunks.
+4. Passes the retrieved context to the AI agent.
+5. Generates a response grounded in the retrieved information.
+6. Returns the final answer to the user.
+
+
+## 🏗️ Architecture
+
+| Phase | Component | Description |
+|---|---|---|
+| Data Layer | Internal Documents | Source HR and company policy documents |
+| Processing | Document Ingestion | Loads documents into the pipeline |
+| Processing | Text Extraction | Extracts text from documents |
+| Processing | Text Chunking | Splits documents into smaller chunks |
+| Embedding | Embeddings Generation | Converts text into vector representations |
+| Storage | Vector Store | Stores embeddings for semantic retrieval |
+| Query | User Question | Receives the user's question |
+| Retrieval | Semantic Retrieval | Finds relevant document chunks |
+| Context | Relevant Context | Provides retrieved knowledge to the AI |
+| Generation | AI Agent | Processes the retrieved context |
+| Output | Grounded Answer | Generates the final response |
+
+
+## 📚 Knowledge Base
+
+The RAG system uses **7 internal company documents**:
+
+| # | Document |
+|---:|---|
+| 1 | Code of Conduct |
+| 2 | Leave Policy |
+| 3 | IT & Information Security Policy |
+| 4 | Employee Benefits Policy |
+| 5 | Work From Home (WFH) Policy |
+| 6 | Employee Handbook |
+| 7 | HR FAQs |
+
+These documents cover employee policies, leave rules, benefits, security requirements, workplace conduct, remote work, and HR-related information.
+
+
+## ✨ Key Features
+
+| Feature | Description |
+|---|---|
+| 📄 Document Ingestion | Processes internal company documents |
+| 🔍 Semantic Search | Retrieves relevant information using vector similarity |
+| 🧠 RAG Architecture | Combines retrieval with AI generation |
+| 🤖 AI Agent | Generates responses using retrieved context |
+| 📚 Knowledge Base | Centralized source of company information |
+| 🎯 Grounded Answers | Bases responses on retrieved documentation |
+| 🛡️ Hallucination Reduction | Helps reduce unsupported AI responses |
+| ⚡ Automated Workflow | Orchestrated using n8n |
+
+
+## ⚙️ Workflow
+
+### 1. Document Ingestion
+
+Internal company documents are provided as the knowledge source for the assistant.
+
+### 2. Text Processing
+
+Document content is extracted and divided into smaller chunks to make retrieval more effective.
+
+### 3. Embedding Generation
+
+The processed text chunks are converted into vector representations.
+
+### 4. Vector Storage
+
+The embeddings are stored in a vector store, allowing semantic similarity searches.
+
+### 5. Query Processing
+
+When a user asks a question, the query is processed and used to search the knowledge base.
+
+### 6. Semantic Retrieval
+
+The system retrieves the most relevant document chunks related to the user's question.
+
+### 7. AI Response Generation
+
+The retrieved context is passed to the AI agent, which generates a response based on the available information.
+
+
+## 🛠️ Tech Stack
+
+| Technology | Purpose |
+|---|---|
+| **n8n** | Workflow automation and orchestration |
+| **Google Drive** | Document storage and monitoring |
+| **Google Gemini** | Embeddings / AI processing |
+| **Groq** | AI chat model |
+| **Vector Store** | Semantic document retrieval |
+| **RAG** | Retrieval-Augmented Generation architecture |
+| **JSON** | Workflow configuration and data exchange |
+
+
+## 🧪 Evaluation
+
+The RAG assistant was evaluated using a dedicated test dataset created from the 7 knowledge-base documents.
+
+### Test Dataset
+
+| Metric | Result |
+|---|---:|
+| Questions Tested | 20 |
+| Pass Cases | 15 |
+| Fail Cases | 5 |
+| Documents Evaluated | 7 |
+
+The questions were intentionally mixed to test whether the system can distinguish between information supported by the knowledge base and incorrect statements.
+
+### Evaluation Criteria
+
+| Criterion | Description |
+|---|---|
+| Retrieval Accuracy | Retrieves relevant information from the knowledge base |
+| Answer Correctness | Generates answers consistent with source documents |
+| Grounded Responses | Uses retrieved context instead of unsupported information |
+| Pass/Fail Classification | Distinguishes supported and contradictory statements |
+| Hallucination Control | Reduces unsupported or fabricated responses |
+
+### 📊 Evaluation Dataset
+
+The complete evaluation dataset is available here:
+
+![View RAG Evaluation Test Dataset](./rag-evaluation-test-dataset.xlsx)
+
+Detailed evaluation methodology:
+
+![View Evaluation.md](./Evaluation.md)
+
+
+## 📈 Evaluation Metrics
+
+The evaluation framework supports the following metrics:
+
+| Metric | Purpose |
+|---|---|
+| **Accuracy** | Measures the percentage of correctly classified test cases |
+| **Precision** | Measures correctness of identified Pass cases |
+| **Recall** | Measures how many expected Pass cases were identified |
+| **F1 Score** | Combines precision and recall into a single metric |
+
+> Final performance metrics should be calculated from the actual RAG test results rather than estimated values.
+
+## 🖼️ Workflow
+
+The complete n8n workflow demonstrates the document ingestion, processing, embedding, retrieval, and AI response-generation pipeline.
+
+![RAG Workflow](./workflow-screenshot.png)
+
+
+## 📂 Repository Structure
+
+| File | Purpose |
+|---|---|
+| `README.md` | Project documentation |
+| `Evaluation.md` | Evaluation methodology and criteria |
+| `rag-evaluation-test-dataset.xlsx` | 20-question evaluation dataset |
+| `workflow.json` | n8n workflow configuration |
+| `Banner.jpeg` | Project banner |
+| `workflow-screenshot.png` | Workflow screenshot |
+
+
+## 🔐 Security & Data Handling
+
+API keys, authentication tokens, credentials, and other sensitive configuration values should not be committed to the repository.
+
+The workflow should use secure credential management or environment variables for sensitive configuration.
+
+
+## 🚀 Potential Use Cases
+
+The architecture can be adapted for:
+
+- Internal HR assistants
+- Employee support systems
+- IT helpdesk assistants
+- Company policy assistants
+- Customer support knowledge bases
+- Product documentation assistants
+- Internal SOP assistants
+- Enterprise knowledge management systems
+
+
+## 🎓 Skills Demonstrated
+
+This project demonstrates practical experience with:
+
+- Retrieval-Augmented Generation (RAG)
+- AI Agent development
+- Vector embeddings
+- Semantic search
+- Vector stores
+- Document processing
+- Text chunking
+- Prompt engineering
+- n8n workflow automation
+- Knowledge-base design
+- RAG evaluation
+- Hallucination reduction
+
+## 🔮 Future Improvements
+
+Potential improvements include:
+
+- Source citations in every generated answer
+- Hybrid keyword and semantic retrieval
+- Retrieval re-ranking
+- Conversation memory
+- User authentication and access control
+- Document version tracking
+- Automated evaluation dashboards
+- Larger evaluation datasets
+- User feedback-based retrieval improvement
+- Production monitoring and analytics
+
+
+## 📌 Conclusion
+
+The **RAG AI Internal Knowledge Assistant** demonstrates how internal company documents can be transformed into an interactive AI knowledge system.
+
+By combining **RAG, vector retrieval, embeddings, AI agents, and n8n workflow automation**, the project provides a practical approach to building AI assistants that can answer questions using organization-specific knowledge while reducing reliance on unsupported model-generated information.
 
 
 
-## How It Works
 
-1. Document Ingestion
 
-When a new document is added to the configured Google Drive folder, the workflow downloads the file and extracts its PDF text.
-
-The extracted content is processed through the Document Loader and Gemini Embeddings before being stored in the Simple Vector Store for semantic retrieval.
-
-2. Knowledge Retrieval
-
-When a user asks a question through the Chat Trigger, the AI Agent uses the Vector Store Retriever to search the stored knowledge and retrieve relevant information.
-
-3. AI Answer Generation
-
-The retrieved information is passed to the AI Agent, which uses the Groq Chat Model to generate a clear answer based on the available knowledge.
-
-The agent is instructed to use only information retrieved from the knowledge base and not invent information.
-
-4. Testing & Evaluation
-
-The workflow also includes an automated testing flow.
-
-User Question
-      ↓
-Knowledge Retrieval
-      ↓
-AI Answer
-      ↓
-JavaScript Processing
-      ↓
-Test ID Generation
-      ↓
-Google Sheets
-
-Test results are stored with Test ID, Question, AI Answer, and Result.
-
-## Key Features
-
-* Automated document ingestion from Google Drive
-* PDF text extraction
-* Gemini-powered embeddings
-* Vector-based semantic retrieval
-* AI Agent for knowledge-based question answering
-* Groq-powered chat model
-* Knowledge-grounded responses
-* Automated AI response testing
-* Google Sheets test result storage
-
-## Tech Stack
-
-* n8n — Workflow automation
-* Google Drive — Document storage
-* Google Gemini — Text embeddings
-* Simple Vector Store — Semantic retrieval
-* Groq / Qwen 3.6 27B — AI chat model
-* Google Sheets — Testing and results
-* JavaScript — Response processing
-
-## Use Cases
-
-* Internal company knowledge assistants
-* HR policy assistants
-* SOP and documentation search
-* Employee support systems
-* Internal documentation Q&A
 
 
