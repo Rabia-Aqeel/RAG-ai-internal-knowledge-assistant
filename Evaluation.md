@@ -1,13 +1,13 @@
-RAG Evaluation
+## RAG Evaluation
 
-Overview
+## Overview
 
 This document describes the evaluation process used to test the Rabix Labs RAG AI Internal Knowledge Assistant.
 
 The evaluation was designed to verify whether the RAG workflow can retrieve relevant information from the provided internal company documents and correctly distinguish between supported and incorrect statements.
 
 
-Knowledge Base
+## Knowledge Base
 
 The RAG system was evaluated against the following 7 internal documents:
 
@@ -21,7 +21,7 @@ The RAG system was evaluated against the following 7 internal documents:
 
 These documents contain information about company policies, employee benefits, leave rules, security requirements, workplace conduct, working arrangements, and frequently asked HR questions.
 
-Evaluation Dataset
+## Evaluation Dataset
 
 A test dataset containing 20 questions was created from the knowledge base.
 
@@ -32,45 +32,44 @@ The dataset contains:
 
 The questions were intentionally mixed instead of grouping all Pass or Fail cases together.
 
-Test Distribution
+### Test Dataset
 
-Test Type	Number
-Pass	15
-Fail	5
-Total	20
-
-
+| Metric | Result |
+|---|---:|
+| Questions Tested | 20 |
+| Pass Cases | 15 |
+| Fail Cases | 5 |
+| Documents Evaluated | 7 |
 Evaluation Criteria
 
 The RAG workflow was evaluated using the following criteria:
 
-1. Retrieval Accuracy
+## 1. Retrieval Accuracy
 
 The system should retrieve information relevant to the user’s question from the available documents.
 
-2. Answer Correctness
+## 2. Answer Correctness
 
 The generated answer should accurately reflect the information contained in the retrieved documents.
 
-3. Grounded Responses
+## 3. Grounded Responses
 
 The system should answer using information available in the knowledge base rather than inventing unsupported information.
 
-4. Pass/Fail Classification
+## 4. Pass/Fail Classification
 
 For evaluation questions containing factual statements:
 
-* PASS — the statement is supported by the source documents.
-* FAIL — the statement contradicts the source documents.
+* PASS — The statement is supported by the source documents.
+* FAIL — The statement contradicts the source documents.
 
-5. Handling Incorrect Information
+## 5. Handling Incorrect Information
 
 The system should be able to identify statements that conflict with the knowledge base rather than accepting them as factual.
 
+## Example Evaluation Cases
 
-Example Evaluation Cases
-
-Pass Case
+Pass Case 1
 
 Question:
 
@@ -89,7 +88,7 @@ Source:
 Leave Policy / HR FAQs
 
 
-Pass Case
+Pass Case 2
 
 Question:
 
@@ -108,7 +107,7 @@ Source:
 IT & Information Security Policy
 
 
-Fail Case
+Fail Case 1
 
 Question:
 
@@ -127,7 +126,7 @@ Source:
 Employee Handbook
 
 
-Fail Case
+Fail Case 2
 
 Question:
 
@@ -145,13 +144,12 @@ Source:
 
 IT & Information Security Policy
 
-⸻
 
-Test Result Recording
+## Test Result Recording
 
 The actual RAG responses should be recorded in the evaluation spreadsheet.
 
-Recommended columns:
+Recommended Columns
 
 Column	Description
 Question	Evaluation question
@@ -162,9 +160,7 @@ Actual Result	PASS or FAIL based on the RAG response
 Correct	Whether the RAG result matches the expected result
 Source Document	Document containing the supporting information
 
-⸻
-
-Evaluation Metrics
+## Evaluation Metrics
 
 After running all 20 test cases, the following metrics can be calculated:
 
@@ -189,18 +185,18 @@ The F1 score provides a combined measure of precision and recall.
 These metrics should be calculated from the actual RAG test results rather than estimated values.
 
 
-Evaluation Dataset
+##  Evaluation Dataset
 
-The complete RAG evaluation dataset is available in the Excel file below.
+The complete evaluation dataset is available in the Excel spreadsheet below:
 
 
-[📊 RAG Evaluation Test Dataset](./rag-evaluation-test-dataset.xlsx)
-The dataset contains 20 test questions, expected answers, expected results, RAG-generated answers, and actual evaluation results.
 
+## View RAG Evaluation Test Dataset
 
 The spreadsheet contains the questions, expected results, RAG responses, and final evaluation results.
 
-Evaluation Goal
+
+## Evaluation Goal
 
 The primary goal of this evaluation is to determine whether the RAG assistant can:
 
@@ -210,8 +206,7 @@ The primary goal of this evaluation is to determine whether the RAG assistant ca
 * Distinguish correct information from incorrect statements.
 * Provide reliable responses across different company-policy documents.
 
-
-Conclusion
+## Conclusion
 
 The evaluation dataset provides a structured way to test the reliability of the Rabix Labs RAG Knowledge Assistant.
 
