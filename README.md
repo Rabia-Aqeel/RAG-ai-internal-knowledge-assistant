@@ -189,7 +189,7 @@ The evaluation framework supports the following metrics:
 
 The complete n8n workflow demonstrates the document ingestion, processing, embedding, retrieval, and AI response-generation pipeline.
 
-![RAG Workflow](./workflow-screenshot.png)
+![RAG Workflow](./Workflow-overview.png)
 
 
 ## 📂 Repository Structure
